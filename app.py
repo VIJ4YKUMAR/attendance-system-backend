@@ -73,12 +73,12 @@ def get_students():
         # conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=x9qbiYEdpMc8FGnVUdpcb4DaO9dYzV19 host=dpg-ceetjc4gqg4b3h9qv1t0-a")
         conn = psycopg2.connect("dbname=Student_attendance user=vijay password=ryzen host=localhost")
         cursor = conn.cursor()
-        sql = "select * from attendance WHERE check_out IS NULL"
+        sql = "select * from attendance"
         cursor.execute(sql)
         rows = cursor.fetchall()
         rowarray_list = []
         for row in rows:
-            t = { 'id': row[0], 'roll_no': row[1], 'name':row[2]}
+            t = { 'id': row[0], 'roll_no': row[1], 'name':row[2], 'check_in':str(row[3]), 'check_out':str(row[4])}
             rowarray_list.append(t)
         conn.commit()
         cursor.close()
