@@ -21,7 +21,7 @@ def student_checkin():
     conn = None
     if request.method == 'POST':
         try:
-            conn = psycopg2.connect("dbname=Student_attendance user=vijay password=ryzen host=localhost")
+            conn = psycopg2.connect("dbname=Student_attendance user=vijay password=***** host=localhost")
             data = request.get_json()
             roll_no = data['rollNumber']
             name = data['name']
@@ -46,7 +46,7 @@ def student_checkout():
     conn = None
     if request.method == 'POST':
         try:
-            conn = psycopg2.connect("dbname=Student_attendance user=vijay password=ryzen host=localhost")
+            conn = psycopg2.connect("dbname=Student_attendance user=vijay password=***** host=localhost")
             data = request.get_json()
             roll_no = data['rollNumber']
             name = data['name']
@@ -71,7 +71,7 @@ def get_students():
     conn = None
     try:
         # conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=x9qbiYEdpMc8FGnVUdpcb4DaO9dYzV19 host=dpg-ceetjc4gqg4b3h9qv1t0-a")
-        conn = psycopg2.connect("dbname=Student_attendance user=vijay password=ryzen host=localhost")
+        conn = psycopg2.connect("dbname=Student_attendance user=vijay password=***** host=localhost")
         cursor = conn.cursor()
         sql = "select * from attendance"
         cursor.execute(sql)
